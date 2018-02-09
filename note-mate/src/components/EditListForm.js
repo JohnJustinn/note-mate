@@ -1,6 +1,6 @@
 import React from "react";
 
-const EditNoteForm = props => {
+const EditListForm = props => {
   let title = "test";
   let text = "text";
 

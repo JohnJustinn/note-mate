@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/App.css";
+import "../styling/App.css";
 import logo from "../logo.svg";
 import { connect } from "react-redux";
 import {
@@ -11,7 +11,7 @@ import {
 import ListEdit from "./ListEdit";
 import EditListForm from "./EditListForm";
 
-class Notes extends Component {
+class Lists extends Component {
   handleDeleteNote = () => {
     const { id } = this.props.noteSelected;
     this.props.deleteNote(id, this.props.notes);
@@ -38,7 +38,7 @@ class Notes extends Component {
       <div className="note-container">
         <div className="note-editbox">
           {Object.keys(this.props.noteSelected).length > 0 ? (
-            <NoteEdit
+            <ListEdit
               handleShowNote={this.handleShowNote}
               toggleShowUpdate={this.toggleShowUpdate}
               handleDeleteNote={this.handleDeleteNote}
@@ -46,7 +46,7 @@ class Notes extends Component {
             />
           ) : null}
           {this.props.showUpdate ? (
-            <EditNoteForm
+            <EditListForm
               note={this.props.noteSelected}
               notes={this.props}
               handleUpdateNote={this.handleUpdateNote}

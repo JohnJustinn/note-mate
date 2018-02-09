@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
-import ListForm from "./components/ListForm";
-import Lists from "./components/Lists";
+import "../styling/App.css";
+import ListForm from "./ListForm";
+import Lists from "./Lists";
 import { connect } from 'react-redux';
 import { getNotes } from '../actions';
 
@@ -17,11 +17,7 @@ class App extends Component {
          <h1 classname="title">Note-Mate</h1>
         <ListForm />
         </header>
-        {this.props.fetchNotes ? (
-          <img src={logo} className="app-logo" alt="logo" />
-        ) : (
-          <Lists lists={ this.props.lists } />
-        )}
+        
       </div>
     );
   }
@@ -30,7 +26,7 @@ class App extends Component {
 const mapStateToProps = state => {
   const { notesReducer } = state;
   return {
-    notes: noteReducer.notes,
+    notes: notesReducer.notes,
     fetchNotes: notesReducer.fetchNotes,
     error: notesReducer.error
   };

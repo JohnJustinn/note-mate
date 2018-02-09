@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addList } from "../Actions";
-import "..styles/NoteForm.css";
+import { createNote } from "../actions/index.js";
+import "../styling/NoteForm.css";
 
 class ListForm extends Component {
   state = {
@@ -17,7 +17,7 @@ class ListForm extends Component {
 
   handleAddNote = _ => {
     const { title, text, user } = this.state;
-    this.props.addList({ title, text, user });
+    this.props.createNote({ title, text, user });
     this.setState({ id: "", title: "", text: "", user: "" });
   };
 
@@ -63,4 +63,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addList })(ListForm);
+export default connect(mapStateToProps, { createNote })(ListForm);
