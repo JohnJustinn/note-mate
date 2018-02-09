@@ -1,14 +1,8 @@
-import { NEW_LIST, TOGGLE_COMPLETE } from "../Actions";
+import { combineReducers } from 'redux';
+import { notesReducer } from './notesReducer';
+import { noteReducer } from './noteReducer';
 
-export default (lists = [], action) => {
-  switch (action.type) {
-    case NEW_LIST:
-      return lists.concat(action.payload);
-    case TOGGLE_COMPLETE:
-      const newLists = lists.slice(0);
-      newLists[action.payload].completed = !newLists[action.payload].completed;
-      return newLists;
-    default:
-      return lists;
-  }
-};
+export default combineReducers({
+  notesReducer,
+  noteReducer
+});
